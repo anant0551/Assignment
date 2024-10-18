@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Assignment</title>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- GSAP Library for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    body{
+        font-family: "Oswald", sans-serif;
+        height: 100%;
+        background-color:#020024; /* Fallback for browsers that do not support gradients */
+        background-image: linear-gradient(to bottom right, #020024, #00d4ff);
+        min-height: 100%; /* Ensure the body stretches to full height */
+        display: flex;
+        flex-direction: column;
+    }
+    /* Ensure the card is positioned relative so the image can be positioned absolutely */
+    .service-card {
+      position: relative;
+    }
+
+    /* Position the image half inside and half outside the card */
+    .service-card img {
+      border: #020024 solid 3px;
+      background-color: aliceblue;
+      position: absolute;
+      top: -30px;  /* Adjust to place half the image outside */
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100px;  /* Increase the image size */
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Div with ID "assignment" -->
+  <div id="assignment" class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-5xl font-semibold text-white mb-20 mt-14">OUR SERVICES</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <div class="service-card bg-white shadow-lg rounded-lg p-6 text-center ">
+          <div class="flex justify-center mb-4">
+            <img src="images/emergency.png" alt="Emergency Plumbing Services" class="rounded-full">
+          </div>
+          <h3 class="text-xl font-sans font-bold text-gray-800 mb-2 mt-16">Emergency Plumbing Services</h3>
+          <p class="text-gray-600 font-sans mb-4 mt-4">Our plumbers are ready to go 24/7 for emergencies - including nights, weekends, and holidays.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Explore this service &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card bg-white shadow-lg rounded-lg p-6 text-center ">
+          <div class="flex justify-center mb-4">
+            <img src="images/plumbing.png" alt="Plumbing and Drains" class="rounded-full">
+          </div>
+          <h3 class="text-xl font-bold font-sans text-gray-800 mb-2 mt-16">Plumbing and Drains</h3>
+          <p class="text-gray-600 font-sans mb-4 mt-4">As the largest plumbing and drain service company, we make thousands of repairs every day.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Explore this service &rarr;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card bg-white shadow-lg rounded-lg p-6 text-center ">
+          <div class="flex justify-center mb-4">
+            <img src="images/water.png" alt="Water Damage" class="rounded-full">
+          </div>
+          <h3 class="text-xl font-sans font-bold text-gray-800 mb-2 mt-16">Water Damage</h3>
+          <p class="text-gray-600 font-sans mb-4 mt-4">Our teams are equipped with state-of-the-art water extraction and cleanup equipment.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Explore this service &rarr;</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card bg-white shadow-lg rounded-lg p-6 text-center ">
+          <div class="flex justify-center mb-4">
+            <img src="images/water-heater.png" alt="Water Heaters" class="rounded-full">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2 mt-16">Water Heaters</h3>
+          <p class="text-gray-600 mb-4 mt-4">Trust Roto-Rooter for repair and replacement of gas, electric and tankless water heaters.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Explore this service &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JavaScript: GSAP Animations -->
+<script>
+
+
+    // GSAP animation on load for cards
+    gsap.from(".service-card", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.3,
+        duration: 1,
+        ease: "power2.out"
+      });
+  
+    // Add hover event listeners to all service cards
+    document.querySelectorAll('.service-card').forEach(card => {
+      
+      // GSAP hover effect
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power1.out"
+          });
+        });
+  
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power1.out"
+          });
+        });
+  
+        // On mouse enter, rotate the image 360 degrees
+      card.addEventListener('mouseenter', function() {
+        gsap.to(card.querySelector('img'), {
+          scale: 1.3,
+          rotation: 360,    // Rotate 360 degrees
+          duration: 1.5,    // Duration of the animation in seconds
+          ease: "power1.inOut" // Easing function for smooth animation
+        });
+      });
+  
+      // On mouse leave, reset the rotation
+      card.addEventListener('mouseleave', function() {
+        gsap.to(card.querySelector('img'), {
+          scale: 1,
+          rotation: 0,      // Reset to 0 degrees
+          duration: 1.5,    // Duration of the reset animation
+          ease: "power1.inOut"
+        });
+      });
+    });
+  </script>
+ 
+</body>
+</html>
