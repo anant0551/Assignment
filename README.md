@@ -15,6 +15,11 @@ This project showcases a simple responsive web page highlighting various plumbin
 
 The "Our Services" web page presents a visually appealing layout featuring four service cards, each representing different plumbing services. Each card includes an image, service title, description, and a link to explore the service further. The layout is responsive, adapting to various screen sizes using Tailwind CSS.
 
+## Screenshots
+
+
+![assignment](images/assignment.png)
+
 ## Technologies Used
 
 - **HTML**: The structure of the webpage.
